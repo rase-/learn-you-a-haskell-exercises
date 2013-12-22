@@ -29,7 +29,12 @@
  -}
 
 describe :: (Show a, Eq a, Ord a) => a -> a -> [String]
-describe x y = undefined
+describe x y
+  | x > y = show x ++ " is greated than " ++ show y
+  | x < y = show x ++ " is less than " ++ show y
+  | otherwise = show x ++ " is equal to " ++ show y
+
+-- Dude... Binary Search on a list is a bad bad idea
 
 binarySearch :: (Show a, Ord a, Eq a, Monoid b) => (a -> a -> b) -> a -> [a] -> Writer b Bool
 binarySearch = undefined
